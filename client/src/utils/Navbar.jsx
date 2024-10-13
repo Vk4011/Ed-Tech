@@ -100,7 +100,7 @@ const Navbar = () => {
                 {item.name}
               </Link>
             ))}
-            <Link to="/signup">
+            <Link to="/login">
               <button className="bg-purple-500 text-white px-4 py-2 rounded-lg w-full">
                 Login
               </button>
