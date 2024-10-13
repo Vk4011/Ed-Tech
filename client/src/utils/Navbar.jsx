@@ -47,7 +47,7 @@ const Navbar = () => {
                 </Link>
               </motion.div>
             ))}
-            <Link to="/signup">
+            <Link to="/login">
               <motion.button
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.9 }}
