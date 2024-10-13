@@ -15,14 +15,14 @@ const Header = ({ onLogout }) => { // Receive onLogout as a prop
   };
 
   return (
-    <div className="flex justify-between items-center p-4 bg-gray-800 shadow-md">
+    <div className="flex flex-col md:flex-row justify-between items-center p-4 bg-gray-800 shadow-md">
       {/* Left Section: Welcome Message */}
-      <div className="flex items-center space-x-2">
-        <h2 className="text-2xl font-semibold text-white">Dashboard</h2>
+      <div className="flex items-center space-x-2 mb-4 md:mb-0">
+        {/* <h2 className="text-2xl font-semibold text-white">Dashboard</h2> */}
       </div>
 
       {/* Middle Section: Search Input */}
-      <div className="w-1/3 px-4">
+      <div className="w-full md:w-1/3 px-4 mb-4 md:mb-0">
         <input
           type="text"
           placeholder="Search..."

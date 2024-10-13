@@ -9,10 +9,10 @@ const assessmentsData = [
 
 const Assessment = () => {
   return (
-    <div className="min-h-screen bg-gray-900 text-gray-200 p-6">
+    <div className="bg-gray-900 text-gray-200 p-6" style={{ height: '600px' }}>
       <h1 className="text-3xl font-bold mb-6 text-blue-400">Assessments Groups</h1>
-      <div className="overflow-x-auto">
-        <div className="bg-gray-800 shadow rounded-lg">
+      <div className="overflow-x-auto h-full">
+        <div className="bg-gray-800 shadow rounded-lg h-60%">
           <table className="min-w-full table-auto">
             <thead className="bg-gray-700">
               <tr>

@@ -24,7 +24,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
         animate={{ width: isOpen ? "16rem" : "4rem" }}
         transition={{ duration: 0.5, type: "spring" }}
         className="bg-slate-900 shadow-md h-screen z-40 relative flex flex-col"
-        style={{ overflow: "hidden" }}
+        style={{ overflow: "visible" }}  // Ensure overflow is visible for tooltips
       >
         {/* Close Button */}
         {isOpen && (
@@ -37,47 +37,51 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
           </button>
         )}
 
-        <ul className="space-y-4 p-4 mt-16">
-          {menuItems.map((item, index) => {
-            const isActive = location.pathname === item.to;
+        {/* Center the sidebar content */}
+        <div className="flex flex-col justify-center flex-grow">
+          <ul className="space-y-6 p-4">
+            {menuItems.map((item, index) => {
+              const isActive = location.pathname === item.to;
 
-            return (
-              <motion.li
-                key={index}
-                whileHover={{ scale: 1.05, color: "#3B82F6" }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className={`flex items-center space-x-3 cursor-pointer rounded-md p-2 ${
-                  isActive ? "bg-gray-700" : ""
-                }`}
-              >
-                <Link
-                  to={item.to}
-                  className="flex items-center w-full text-gray-300 hover:text-blue-500"
-                  data-tooltip-id={`tooltip-${index}`}
-                  data-tooltip-content={!isOpen ? item.label : ""}
+              return (
+                <motion.li
+                  key={index}
+                  whileHover={{ scale: 1.05, color: "#3B82F6" }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                  className={`flex items-center space-x-3 cursor-pointer rounded-md p-2 ${
+                    isActive ? "bg-gray-700" : ""
+                  }`}
                 >
-                  <div className="text-gray-300 hover:text-blue-500">
-                    {item.icon}
-                  </div>
-                  {isOpen && (
-                    <span className="ml-3 text-sm font-medium">
-                      {item.label}
-                    </span>
+                  <Link
+                    to={item.to}
+                    className="flex items-center w-full text-gray-300 hover:text-blue-500"
+                    data-tooltip-id={`tooltip-${index}`}
+                    data-tooltip-content={!isOpen ? item.label : ""}
+                  >
+                    <div className="text-gray-300 hover:text-blue-500">
+                      {item.icon}
+                    </div>
+                    {isOpen && (
+                      <span className="ml-3 text-sm font-medium">
+                        {item.label}
+                      </span>
+                    )}
+                  </Link>
+                  {/* Tooltip for Icons when Sidebar is Collapsed */}
+                  {!isOpen && (
+                    <Tooltip
+                      id={`tooltip-${index}`}
+                      place="right"
+                      effect="solid"
+                      className="bg-gray-700 text-white z-50"
+                      offset={[10, 0]}  // Increased the horizontal offset for more space
+                    />
                   )}
-                </Link>
-                {/* Tooltip for Icons when Sidebar is Collapsed */}
-                {!isOpen && (
-                  <Tooltip
-                    id={`tooltip-${index}`}
-                    place="right"
-                    effect="solid"
-                    className="bg-gray-700 text-white"
-                  />
-                )}
-              </motion.li>
-            );
-          })}
-        </ul>
+                </motion.li>
+              );
+            })}
+          </ul>
+        </div>
       </motion.div>
     </>
   );
