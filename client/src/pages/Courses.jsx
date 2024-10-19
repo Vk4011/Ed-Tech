@@ -1,9 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import Fs from "../images/FS.png"; // Correctly importing the image
-import Js from "../images/Js.png";
+import mern from "../images/MERN.webp"; // Correctly importing the image
+import Java from "../images/java.png";
 import Dsa from "../images/Dsa.jpg";
-
+import Flutter from "../images/flutter.jpg";
+import py from "../images/python.png";
+import ReactNative from "../images/react.png";
 const Courses = () => {
   const courses = [
     {
@@ -21,7 +23,7 @@ const Courses = () => {
       price: '₹21999',
       originalPrice: '₹28000',
       discount: '57% off',
-      imgSrc: Js,
+      imgSrc: Java,
     },
     {
       id: 3,
@@ -29,8 +31,37 @@ const Courses = () => {
       price: '₹24999',
       originalPrice: '₹29999',
       discount: '50% off',
-      imgSrc: Fs, // Directly using the imported image
+      imgSrc: mern, // Directly using the imported image
     },
+    {
+      id: 4,
+      title: 'Flutter BootCamp',
+      price: '₹21999',
+      originalPrice: '₹28000',
+      discount: '57% off',
+      imgSrc: Flutter, // Directly using the imported image
+    },
+    {
+      id: 5,
+      title: 'React Native',
+      price: '₹21999',
+      originalPrice: '₹28000',
+      discount: '57% off',
+      imgSrc: ReactNative, // Directly using the imported image
+    },
+    {
+      id: 6,
+      title: 'Python Full Stack',
+      price: '₹21999',
+      originalPrice: '₹28000',
+      discount: '57% off',
+      imgSrc: py, // Directly using the imported image
+    },
+    
+
+
+
+
   ];
 
   return (
