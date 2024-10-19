@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import Fs from "../images/FS.png"; // Correctly importing the image
 import Js from "../images/Js.png";
+import Dsa from "../images/Dsa.jpg";
 
 const Courses = () => {
   const courses = [
@@ -11,7 +12,7 @@ const Courses = () => {
       price: '₹8499',
       originalPrice: '₹15000',
       discount: '50% off',
-      imgSrc: 'path/to/image1.png', // Use the correct image path
+      imgSrc: Dsa, // Use the correct image path
       tag: 'New',
     },
     {
