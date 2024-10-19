@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import mern from "../images/MERN.webp"; // Correctly importing the image
-import Java from "../images/java.png";
+import Java from "../images/JavaFs.png";
 import Dsa from "../images/Dsa.jpg";
 import Flutter from "../images/flutter.jpg";
 import py from "../images/python.png";
