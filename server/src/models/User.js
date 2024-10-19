@@ -9,6 +9,6 @@ const UserSchema = new mongoose.Schema({
     state: { type: String, required: true },
     password: { type: String, required: true },
     otp: { type: String } // Add this field to store the OTP
-});
+}, { timestamps: true }); // Automatically add `createdAt` and `updatedAt` fields
 
 module.exports = mongoose.model('User', UserSchema);
