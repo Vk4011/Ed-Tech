@@ -11,9 +11,9 @@ import Explore from "../screens/Explore";
 import Contact from "../pages/Contact";
 import About from "../pages/About";
 import ProfessionalLogin from "../auth/ProfessionalLogin";
-import RegisterDetails from "../auth/RegisterDetails";
 
-const Router = ({ onLogin }) => { // Receive onLogin as a prop
+const Router = ({ onLogin }) => {
+  // Receive onLogin as a prop
   return (
     <BrowserRouter>
       <Navbar />
@@ -21,13 +21,13 @@ const Router = ({ onLogin }) => { // Receive onLogin as a prop
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login onLogin={onLogin} />} /> {/* Pass onLogin to Login */}
+        <Route path="/login" element={<Login onLogin={onLogin} />} />{" "}
+        {/* Pass onLogin to Login */}
         <Route path="/courses" element={<Courses />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/professional-login" element={<ProfessionalLogin />} />
-        <Route path="/register-details" element={<RegisterDetails />} />
       </Routes>
       <Footer />
     </BrowserRouter>
