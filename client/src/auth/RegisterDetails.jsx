@@ -9,13 +9,15 @@ const RegisterDetails = () => {
   const { username, email } = location.state || {}; // Get username and email from state
 
   const [phone, setPhone] = useState('');
+  const [dob, setDob] = useState(''); // New state for Date of Birth
+  const [college, setCollege] = useState(''); // New state for College Name
   const [state, setState] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
   const handleSubmit = () => {
     // Handle form submission logic here (e.g., API call)
-    console.log({ username, email, phone, state, password });
+    console.log({ username, email, phone, dob, college, state, password });
     // Navigate to a success or login page after submission
     navigate('/success'); // Example redirect
   };
@@ -39,6 +41,23 @@ const RegisterDetails = () => {
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
         />
+        
+        <input
+          type="date"
+          placeholder="Date of Birth"
+          className="w-full mb-4 p-3 bg-gray-800 text-white rounded-lg border border-gray-700 placeholder-gray-500"
+          value={dob}
+          onChange={(e) => setDob(e.target.value)}
+        />
+
+        <input
+          type="text"
+          placeholder="College Name"
+          className="w-full mb-4 p-3 bg-gray-800 text-white rounded-lg border border-gray-700 placeholder-gray-500"
+          value={college}
+          onChange={(e) => setCollege(e.target.value)}
+        />
+
         <input
           type="text"
           placeholder="State"
@@ -46,6 +65,7 @@ const RegisterDetails = () => {
           value={state}
           onChange={(e) => setState(e.target.value)}
         />
+        
         <input
           type="password"
           placeholder="Password"
@@ -53,6 +73,7 @@ const RegisterDetails = () => {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
+        
         <input
           type="password"
           placeholder="Confirm Password"

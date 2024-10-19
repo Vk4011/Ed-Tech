@@ -1,11 +1,9 @@
 // src/auth/Login.js
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import Google from "../icons/google.png";
-import Github from "../icons/github.png";
 import { Link } from 'react-router-dom';
 
-const Login = ({ onLogin }) => { // Receive onLogin as a prop
+const Login = ({ onLogin }) => {
   // State to store email, password, and error
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -96,7 +94,6 @@ const Login = ({ onLogin }) => { // Receive onLogin as a prop
     }
 
     // Here, you would typically update the password in your database
-    // Since this is a demo, we'll just reset the state
     alert('Password has been reset successfully.');
 
     // Reset all forgot password states
@@ -118,29 +115,10 @@ const Login = ({ onLogin }) => { // Receive onLogin as a prop
         className="max-w-md w-full bg-gray-900/20 p-6 rounded-lg shadow-lg"
       >
         {!isForgotPassword ? (
-          // Login Form
           <>
             <h2 className="text-2xl text-white font-semibold mb-6">Secure Access Made Simple</h2>
-            <p className="text-gray-400 mb-4">Accessing your account is easy. Pick your preferred login method.</p>
-            
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              className="w-full mb-4 bg-white text-gray-900 p-3 rounded-lg flex items-center justify-center space-x-2"
-            >
-              <img src={Google} alt="Google" className="w-5 h-5" />
-              <span>Continue with Google</span>
-            </motion.button>
-            
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              className="w-full mb-6 bg-gray-800 text-white p-3 rounded-lg flex items-center justify-center space-x-2"
-            >
-              <img src={Github} alt="GitHub" className="w-5 h-5" />
-              <span>Continue with GitHub</span>
-            </motion.button>
-            
-            <p className="text-center text-gray-500 mb-4">OR Register/Login with Gmail</p>
-            
+            <p className="text-gray-400 mb-4">Accessing your account is easy. Please login with your credentials.</p>
+
             {/* Email Input Field */}
             <input
               type="email"
@@ -184,7 +162,6 @@ const Login = ({ onLogin }) => { // Receive onLogin as a prop
             </p>
           </>
         ) : (
-          // Forgot Password Flow
           <>
             <h2 className="text-2xl text-white font-semibold mb-6">Forgot Password</h2>
             <p className="text-gray-400 mb-4">Enter your registered Gmail address to receive an OTP.</p>
@@ -261,7 +238,6 @@ const Login = ({ onLogin }) => { // Receive onLogin as a prop
               <button
                 className="text-purple-500 hover:underline"
                 onClick={() => {
-                  // Reset all forgot password states
                   setIsForgotPassword(false);
                   setForgotEmail('');
                   setOtp('');
