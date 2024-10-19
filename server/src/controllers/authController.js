@@ -97,3 +97,13 @@ exports.resetPassword = async (req, res) => {
         res.status(500).json({ error: err.message });
     }
 };
+
+// Get all user data
+exports.getUserData = async (req, res) => {
+    try {
+        const users = await User.find().select('-password -otp'); // Exclude sensitive fields like password and OTP
+        res.json(users);
+    } catch (err) {
+        res.status(500).json({ error: err.message });
+    }
+};

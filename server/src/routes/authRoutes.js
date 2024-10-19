@@ -1,18 +1,14 @@
-  
 const express = require('express');
 const router = express.Router();
-const { register, login, sendOtp, resetPassword } = require('../controllers/authController');
+const { register, login, sendOtp, resetPassword, getUserData } = require('../controllers/authController');
 
-// Register a new user
+// Existing routes
 router.post('/register', register);
-
-// Login a user
 router.post('/login', login);
-
-// Send OTP for password reset
 router.post('/send-otp', sendOtp);
-
-// Reset password
 router.post('/reset-password', resetPassword);
+
+// New route to get all users' data
+router.get('/data', getUserData);
 
 module.exports = router;
