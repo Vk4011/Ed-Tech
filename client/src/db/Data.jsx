@@ -1,5 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { saveAs } from 'file-saver';
+import * as XLSX from 'xlsx';
+import jsPDF from 'jspdf';
+import 'jspdf-autotable';
 
 const Data = () => {
   const [data, setData] = useState([]);
@@ -17,37 +21,83 @@ const Data = () => {
     fetchData();
   }, []);
 
+  // Function to export data as Excel file
+  const exportToExcel = () => {
+    const worksheet = XLSX.utils.json_to_sheet(data);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'UserData');
+    const excelBuffer = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+    const dataBlob = new Blob([excelBuffer], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+    saveAs(dataBlob, 'UserData.xlsx');
+  };
+
+  // Function to export data as PDF
+  const exportToPDF = () => {
+    const doc = new jsPDF();
+    doc.setFontSize(18);
+    doc.text('User Data', 14, 22);
+    const tableData = data.map((user, index) => [
+      index + 1,
+      user.username,
+      user.email,
+      user.phone,
+      new Date(user.dob).toLocaleDateString(),
+      user.college,
+      user.state,
+    ]);
+    doc.autoTable({
+      head: [['SI', 'Username', 'Email', 'Phone', 'Date of Birth', 'College', 'State']],
+      body: tableData,
+      startY: 30,
+    });
+    doc.save('UserData.pdf');
+  };
+
   return (
     <div className="min-h-screen bg-black text-green-300 flex flex-col items-center p-4 sm:p-8">
       <motion.h1 
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-12 text-blue-400"
+        className="text-3xl sm:text-5xl font-extrabold mb-6 sm:mb-12 text-green-400"
       >
         User Data
       </motion.h1>
+      <div className="flex gap-4 mb-8">
+        <button 
+          onClick={exportToExcel}
+          className="bg-green-500 text-black font-bold py-2 px-4 rounded-lg shadow-md hover:bg-green-400 transition-all"
+        >
+          Download Excel
+        </button>
+        <button 
+          onClick={exportToPDF}
+          className="bg-green-500 text-black font-bold py-2 px-4 rounded-lg shadow-md hover:bg-green-400 transition-all"
+        >
+          Download PDF
+        </button>
+      </div>
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1 }}
-        className="overflow-hidden rounded-lg shadow-lg w-full max-w-full sm:max-w-5xl overflow-x-auto"
+        className="overflow-hidden rounded-lg shadow-lg w-full max-w-full sm:max-w-5xl overflow-x-auto bg-opacity-20 bg-green-900 backdrop-blur-lg border border-green-500"
       >
         <motion.table
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1 }}
-          className="w-full table-auto border-collapse bg-gray-800 text-left"
+          className="w-full table-auto border-collapse bg-black text-left"
         >
           <thead>
             <tr>
-              <th className="border border-green-500 p-2 sm:p-4 bg-green-800 text-blue-300">SI</th>
-              <th className="border border-green-500 p-2 sm:p-4 bg-green-800 text-blue-300">Username</th>
-              <th className="border border-green-500 p-2 sm:p-4 bg-green-800 text-blue-300">Email</th>
-              <th className="border border-green-500 p-2 sm:p-4 bg-green-800 text-blue-300">Phone</th>
-              <th className="border border-green-500 p-2 sm:p-4 bg-green-800 text-blue-300">Date of Birth</th>
-              <th className="border border-green-500 p-2 sm:p-4 bg-green-800 text-blue-300">College</th>
-              <th className="border border-green-500 p-2 sm:p-4 bg-green-800 text-blue-300">State</th>
+              <th className="border border-green-500 p-2 sm:p-4 bg-opacity-30 bg-green-800 text-green-300">SI</th>
+              <th className="border border-green-500 p-2 sm:p-4 bg-opacity-30 bg-green-800 text-green-300">Username</th>
+              <th className="border border-green-500 p-2 sm:p-4 bg-opacity-30 bg-green-800 text-green-300">Email</th>
+              <th className="border border-green-500 p-2 sm:p-4 bg-opacity-30 bg-green-800 text-green-300">Phone</th>
+              <th className="border border-green-500 p-2 sm:p-4 bg-opacity-30 bg-green-800 text-green-300">Date of Birth</th>
+              <th className="border border-green-500 p-2 sm:p-4 bg-opacity-30 bg-green-800 text-green-300">College</th>
+              <th className="border border-green-500 p-2 sm:p-4 bg-opacity-30 bg-green-800 text-green-300">State</th>
             </tr>
           </thead>
           <motion.tbody>
