@@ -1,42 +1,72 @@
-import React from 'react';
-
-const assessmentsData = [
-  { title: 'byteXL Certification Assignment', description: 'Future Class Benchmark Test', link: '#' },
-  { title: 'byteXL Coding Challenge', description: 'Weekly Challenge', link: '#' },
-  { title: 'Verbal', description: "Practice (MCQ'S)", link: '#' },
-  { title: 'QIS', description: 'Assessments', link: '#' },
-];
-
+import React, { useState } from 'react';
+import test from './text.json'; 
 const Assessment = () => {
+  const [questions] = useState(test); // Use the imported test questions directly
+  const [answers, setAnswers] = useState({});
+  const [score, setScore] = useState(null);
+
+  const handleAnswerChange = (questionIndex, selectedOption) => {
+    setAnswers({
+      ...answers,
+      [questionIndex]: selectedOption
+    });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let newScore = 0;
+    questions.forEach((question, index) => {
+      if (answers[index] === question.answer) {
+        newScore++;
+      }
+    });
+    setScore(newScore);
+  };
+
   return (
-    <div className="bg-gray-900 text-gray-200 p-6" style={{ height: '600px' }}>
-      <h1 className="text-3xl font-bold mb-6 text-blue-400">Assessments Groups</h1>
-      <div className="overflow-x-auto h-full">
-        <div className="bg-gray-800 shadow rounded-lg h-60%">
-          <table className="min-w-full table-auto">
-            <thead className="bg-gray-700">
-              <tr>
-                <th className="px-6 py-3 text-left text-sm font-semibold text-blue-300">Title</th>
-                <th className="px-6 py-3 text-left text-sm font-semibold text-blue-300">Description</th>
-                <th className="px-6 py-3 text-right text-sm font-semibold text-blue-300">Go to Assessments</th>
-              </tr>
-            </thead>
-            <tbody className="bg-gray-800 divide-y divide-gray-700">
-              {assessmentsData.map((assessment, index) => (
-                <tr key={index} className="hover:bg-gray-700 transition-colors duration-200">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-white">{assessment.title}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-400">{assessment.description}</td>
-                  <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <a href={assessment.link} className="text-blue-500 hover:text-blue-300 transition-colors duration-200">
-                      Open
-                    </a>
-                  </td>
-                </tr>
+    <div className="max-w-2xl mx-auto p-6 bg-black min-h-screen">
+      <h1 className="text-3xl text-center text-green-400 mb-8">Quiz Assignment</h1>
+      {score === null ? (
+        <form onSubmit={handleSubmit}>
+          {questions.map((question, index) => (
+            <div key={index} className="mb-6">
+              <h3 className="text-xl text-green-300">{index + 1}. {question.question}</h3>
+              {question.options.map((option, optionIndex) => (
+                <div key={optionIndex} className="mt-2">
+                  <label className="text-green-100 flex items-center">
+                    <input
+                      type="radio"
+                      id={`q${index}_o${optionIndex}`}
+                      name={`question_${index}`}
+                      value={optionIndex}
+                      checked={answers[index] === optionIndex}
+                      onChange={() => handleAnswerChange(index, optionIndex)}
+                      className="mr-2 text-blue-500"
+                    />
+                    {option}
+                  </label>
+                </div>
               ))}
-            </tbody>
-          </table>
+            </div>
+          ))}
+          <button
+            type="submit"
+            className="w-full mt-4 p-3 bg-blue-600 text-white text-lg rounded-md hover:bg-blue-700 transition duration-200"
+          >
+            Submit
+          </button>
+        </form>
+      ) : (
+        <div className="text-center">
+          <h2 className="text-2xl text-green-300">Your Score: {score}/{questions.length}</h2>
+          <button
+            onClick={() => setScore(null)}
+            className="w-full mt-4 p-3 bg-blue-600 text-white text-lg rounded-md hover:bg-blue-700 transition duration-200"
+          >
+            Try Again
+          </button>
         </div>
-      </div>
+      )}
     </div>
   );
 };

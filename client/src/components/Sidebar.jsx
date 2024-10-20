@@ -15,6 +15,7 @@ const Sidebar = ({ isOpen, setIsOpen }) => {
     { label: "Editor", to: "/editor", icon: <FiEdit size={20} /> },
     { label: "Assessments", to: "/assessment", icon: <FiFileText size={20} /> },
     { label: "Data", to: "/data", icon: <FiFileText size={20} /> } // Changed to lowercase "/data"
+    
   ];
 
   return (

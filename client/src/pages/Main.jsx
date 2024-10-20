@@ -10,6 +10,7 @@ import Assessment from "../components/Assessment";
 import Editor from "../components/Editor";
 import Data from "../db/Data";
 
+
 const Main = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
@@ -39,6 +40,7 @@ const Main = () => {
                 path="/courses"
                 element={<h1 className="text-2xl font-bold text-blue-600">Courses Page</h1>}
               />
+      
             </Routes>
           </div>
         </div>

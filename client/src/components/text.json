@@ -1,0 +1,112 @@
+[
+  {
+    "question": "What is an HTML Document?",
+    "options": [
+      "A set of files used to store images",
+      "A file containing content to display on a webpage, written in HTML",
+      "A type of CSS file for styling webpages",
+      "A programming script that runs in the background"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What are the types of CSS selectors?",
+    "options": [
+      "Element, ID, Class",
+      "Font, Color, Size",
+      "Tag, Bold, Italics",
+      "Text, Paragraph, Body"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What is a void tag in HTML?",
+    "options": [
+      "A tag that does not require attributes",
+      "A tag that only works in CSS",
+      "A tag that does not require a closing tag",
+      "A tag used to delete content"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Why should we use JavaScript?",
+    "options": [
+      "To structure the content of a webpage",
+      "To add interactivity and dynamic behavior to webpages",
+      "To add styling to a webpage",
+      "To compress images on the webpage"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Why should we use CSS?",
+    "options": [
+      "To structure the webpage",
+      "To make the webpage interactive",
+      "To style and layout the webpage content",
+      "To debug HTML code"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What is the difference between a tag and an element in HTML?",
+    "options": [
+      "There is no difference",
+      "A tag is part of the code, and an element includes both the tag and its content",
+      "A tag is used to style elements, and an element is used to display content",
+      "A tag is always self-closing, and an element is not"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What is the purpose of the <head> tag in HTML?",
+    "options": [
+      "To display the title and metadata of the webpage",
+      "To structure the body content of the page",
+      "To insert JavaScript into the page",
+      "To load images on the page"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which of the following is not a CSS layout property?",
+    "options": [
+      "Flexbox",
+      "Grid",
+      "Inline",
+      "Position"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which HTML tag is used to define a hyperlink?",
+    "options": [
+      "<a>",
+      "<link>",
+      "<hyperlink>",
+      "<href>"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which HTML tag is used to define an unordered list?",
+    "options": [
+      "<ul>",
+      "<ol>",
+      "<list>",
+      "<li>"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What does CSS stand for?",
+    "options": [
+      "Cascading Style Sheets",
+      "Colorful Style Sheets",
+      "Computer Style Sheets",
+      "Creative Style System"
+    ],
+    "answer": 0
+  }
+]
