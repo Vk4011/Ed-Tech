@@ -1,23 +1,39 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
+import ceo from '../images/Chaithanya.jpg';
+import founder from '../images/Vali.jpg';
+import sde from '../images/Vikram.png';
 
 // Sample data for instructors
 const instructors = [
   {
-    name: 'Chiythanaya',
+    name:'T. Chaithanya',
     title: 'CEO, Flutter App Development Instructor',
     description:
       'Chiythanaya is the CEO and a seasoned Flutter app development instructor. With years of experience in building cross-platform mobile applications, he has helped many developers master Flutter. His teaching style is highly appreciated for simplifying complex concepts.',
-    image: 'https://4kwallpapers.com/images/walls/thumbs/17833.jpg', // Replace with actual image path
+    image: ceo,
   },
   {
     name: 'Muhammad Vali',
     title: 'Founder, Java Fullstack Instructor',
     description:
       'Muhammad Vali is the founder and a highly skilled Java Fullstack instructor. He is known for his expertise in backend and frontend development, with a strong focus on Java technologies. He has mentored numerous students and working professionals to become proficient in full-stack Java development.',
-    image: 'https://4kwallpapers.com/images/walls/thumbs/19004.jpg', // Replace with actual image path
+    image: founder,
   },
+  {
+    name: 'Vikram',
+    title: 'Project Manger, Fullstack Instructor',
+    description:
+      'Vikram is a senior software engineer with a passion for MERN stack. He has been working on js-related projects for the past five years, and he is a highly skilled instructor. His teaching style is characterized by simplicity and clarity, making it easy for beginners to grasp the concepts.',
+    image: sde,
+  },
+  {
+    name: 'Shaziya Sultana',
+    title: 'HR Manager',
+    description:'Shaziya Sultana is the HR Manager at JB. She is responsible for managing the recruitment process, employee relations, and other HR-related activities. She is a people person and is known for her friendly and approachable nature.',
+    image: "https://cdn-icons-png.flaticon.com/128/4140/4140060.png",
+  }
 ];
 
 const About = () => {
