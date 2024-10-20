@@ -11,7 +11,7 @@ import Explore from "../screens/Explore";
 import Contact from "../pages/Contact";
 import About from "../pages/About";
 import ProfessionalLogin from "../auth/ProfessionalLogin";
-
+import Data from "../db/Data";
 const Router = ({ onLogin }) => {
   // Receive onLogin as a prop
   return (

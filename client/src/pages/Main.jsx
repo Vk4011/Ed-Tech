@@ -2,15 +2,16 @@ import React, { useState } from "react";
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { FiMenu } from "react-icons/fi"; // Import FiMenu
+import { FiMenu } from "react-icons/fi";
 
 // Import your components
 import Home from "../components/Home";
 import Assessment from "../components/Assessment";
 import Editor from "../components/Editor";
+import Data from "../db/Data";
 
 const Main = () => {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true); // Manage sidebar state
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
   return (
     <Router>
@@ -29,7 +30,7 @@ const Main = () => {
               <Route path="/" element={<Home />} />
               <Route path="/assessment" element={<Assessment />} />
               <Route path="/editor" element={<Editor />} />
-              {/* Add other routes */}
+              <Route path="/data" element={<Data />} /> {/* This matches "/data" */}
               <Route
                 path="/mycourses"
                 element={<h1 className="text-2xl font-bold text-blue-600">My Courses Page</h1>}

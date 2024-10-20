@@ -1,32 +1,23 @@
-// src/components/Header.js
 import React from "react";
-import { motion } from "framer-motion"; // Optional: For animations
-import { useNavigate } from 'react-router-dom'; // To navigate on logout
+import { motion } from "framer-motion";
+import { useNavigate } from 'react-router-dom';
 
-const Header = ({ onLogout }) => { // Receive onLogout as a prop
+const Header = ({ onLogout }) => {
   const navigate = useNavigate();
 
   const handleLogout = () => {
-    // Call the onLogout function passed from Main.js (which is from AuthContext)
     onLogout();
-
-    // Navigate to the login page
     navigate('/login');
   };
 
   return (
-    <div className="flex flex-col md:flex-row justify-between items-center p-4 bg-gray-800 shadow-md">
-      {/* Left Section: Welcome Message */}
-      <div className="flex items-center space-x-2 mb-4 md:mb-0">
-        {/* <h2 className="text-2xl font-semibold text-white">Dashboard</h2> */}
-      </div>
-
+    <div className="flex flex-col md:flex-row justify-between items-center p-4 bg-gray-800 shadow-lg">
       {/* Middle Section: Search Input */}
       <div className="w-full md:w-1/3 px-4 mb-4 md:mb-0">
         <input
           type="text"
           placeholder="Search..."
-          className="border border-gray-600 bg-gray-700 text-white rounded-lg p-2 w-full focus:outline-none focus:ring focus:ring-blue-500"
+          className="border border-gray-600 bg-gray-700 text-white rounded-lg p-2 w-full focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-300"
         />
       </div>
 
@@ -35,14 +26,14 @@ const Header = ({ onLogout }) => { // Receive onLogout as a prop
         <img
           src="https://4kwallpapers.com/images/walls/thumbs_v/19136.jpg"
           alt="Profile"
-          className="w-10 h-10 rounded-full border-2 border-gray-500 shadow-sm"
+          className="w-10 h-10 rounded-full border-2 border-blue-500 shadow-md hover:shadow-lg transition-shadow duration-300"
         />
         <span className="text-white text-lg font-medium">jb</span>
-        {/* Logout Button */}
         <motion.button
-          whileHover={{ scale: 1.05 }}
-          onClick={handleLogout} // Trigger logout on click
-          className="bg-red-600 text-white px-3 py-1 rounded-lg hover:bg-red-700 transition-colors"
+          whileHover={{ scale: 1.1, backgroundColor: "#dc2626" }}
+          transition={{ duration: 0.3 }}
+          onClick={handleLogout}
+          className="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors duration-300"
         >
           Logout
         </motion.button>
