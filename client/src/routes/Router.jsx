@@ -11,7 +11,8 @@ import Explore from "../screens/Explore";
 import Contact from "../pages/Contact";
 import About from "../pages/About";
 import ProfessionalLogin from "../auth/ProfessionalLogin";
-import Data from "../db/Data";
+import Test from "../pages/Test";
+
 const Router = ({ onLogin }) => {
   // Receive onLogin as a prop
   return (
@@ -28,6 +29,7 @@ const Router = ({ onLogin }) => {
         <Route path="/contact" element={<Contact />} />
         <Route path="/about" element={<About />} />
         <Route path="/professional-login" element={<ProfessionalLogin />} />
+        <Route path="/tutorials" element={<Test />} />
       </Routes>
       <Footer />
     </BrowserRouter>
