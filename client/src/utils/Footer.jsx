@@ -36,8 +36,8 @@ const Footer = () => {
         {/* Section 3: Contact */}
         <div className="flex flex-col space-y-4">
           <h2 className="text-white text-lg font-semibold">Contact Us</h2>
-          <p className="text-sm">Email: support@jbtech.com</p>
-          <p className="text-sm">Phone: +1 (123) 456-7890</p>
+          <p className="text-sm">Email:  mahammedvali2966@gmail.com </p>
+          <p className="text-sm">Phone: 9676406367 </p>
           <div className="flex space-x-4">
             <a href="#" aria-label="Facebook" className="hover:text-white">
               Facebook

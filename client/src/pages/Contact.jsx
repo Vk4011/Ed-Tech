@@ -101,7 +101,7 @@ const Contact = () => {
             <h2 className="text-3xl font-bold mb-4">Contact Information</h2>
             <p className="text-lg">For inquiries, reach us at:</p>
             <p className="mt-4 flex items-center">
-              <span className="mr-2">📧</span> support@JB.in
+              <span className="mr-2">📧</span>   mahammedvali2966@gmail.com 
             </p>
           </div>
           <div className="mt-8 flex space-x-4">
